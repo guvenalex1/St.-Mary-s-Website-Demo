@@ -1,0 +1,81 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E0F6FF;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grassGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#90EE90;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#228B22;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Sky background -->
+  <rect width="800" height="400" fill="url(#skyGrad)" />
+  
+  <!-- Ground -->
+  <rect x="0" y="400" width="800" height="200" fill="url(#grassGrad)" />
+  
+  <!-- School building -->
+  <rect x="50" y="200" width="300" height="200" fill="#8B4513" stroke="#654321" stroke-width="2"/>
+  <polygon points="50,200 200,120 350,200" fill="#DC143C" stroke="#B22222" stroke-width="2"/>
+  
+  <!-- Windows -->
+  <rect x="80" y="240" width="40" height="40" fill="#87CEEB" stroke="#4682B4" stroke-width="2"/>
+  <rect x="150" y="240" width="40" height="40" fill="#87CEEB" stroke="#4682B4" stroke-width="2"/>
+  <rect x="220" y="240" width="40" height="40" fill="#87CEEB" stroke="#4682B4" stroke-width="2"/>
+  <rect x="290" y="240" width="40" height="40" fill="#87CEEB" stroke="#4682B4" stroke-width="2"/>
+  
+  <!-- Door -->
+  <rect x="180" y="320" width="40" height="80" fill="#8B4513" stroke="#654321" stroke-width="2"/>
+  <circle cx="210" cy="360" r="3" fill="#FFD700"/>
+  
+  <!-- Elementary students (simple figures) -->
+  <!-- Student 1 -->
+  <circle cx="450" cy="480" r="20" fill="#FDBCB4"/>
+  <rect x="440" y="500" width="20" height="40" fill="#FF69B4"/>
+  <rect x="435" y="540" width="10" height="30" fill="#000080"/>
+  <rect x="455" y="540" width="10" height="30" fill="#000080"/>
+  <rect x="430" y="570" width="15" height="8" fill="#8B4513"/>
+  <rect x="455" y="570" width="15" height="8" fill="#8B4513"/>
+  
+  <!-- Student 2 -->
+  <circle cx="520" cy="480" r="20" fill="#FDBCB4"/>
+  <rect x="510" y="500" width="20" height="40" fill="#32CD32"/>
+  <rect x="505" y="540" width="10" height="30" fill="#8B4513"/>
+  <rect x="525" y="540" width="10" height="30" fill="#8B4513"/>
+  <rect x="500" y="570" width="15" height="8" fill="#000000"/>
+  <rect x="525" y="570" width="15" height="8" fill="#000000"/>
+  
+  <!-- Student 3 -->
+  <circle cx="590" cy="480" r="20" fill="#FDBCB4"/>
+  <rect x="580" y="500" width="20" height="40" fill="#FFD700"/>
+  <rect x="575" y="540" width="10" height="30" fill="#4B0082"/>
+  <rect x="595" y="540" width="10" height="30" fill="#4B0082"/>
+  <rect x="570" y="570" width="15" height="8" fill="#8B4513"/>
+  <rect x="595" y="570" width="15" height="8" fill="#8B4513"/>
+  
+  <!-- Playground equipment -->
+  <!-- Swing set -->
+  <rect x="650" y="450" width="8" height="100" fill="#8B4513"/>
+  <rect x="720" y="450" width="8" height="100" fill="#8B4513"/>
+  <rect x="650" y="450" width="78" height="8" fill="#8B4513"/>
+  <line x1="670" y1="458" x2="670" y2="520" stroke="#000000" stroke-width="2"/>
+  <rect x="660" y="520" width="20" height="8" fill="#FF6347"/>
+  
+  <!-- Sun -->
+  <circle cx="700" cy="80" r="40" fill="#FFD700" stroke="#FFA500" stroke-width="3"/>
+  <line x1="700" y1="20" x2="700" y2="40" stroke="#FFD700" stroke-width="4"/>
+  <line x1="700" y1="120" x2="700" y2="140" stroke="#FFD700" stroke-width="4"/>
+  <line x1="640" y1="80" x2="660" y2="80" stroke="#FFD700" stroke-width="4"/>
+  <line x1="740" y1="80" x2="760" y2="80" stroke="#FFD700" stroke-width="4"/>
+  
+  <!-- Clouds -->
+  <ellipse cx="150" cy="60" rx="30" ry="20" fill="#FFFFFF" opacity="0.8"/>
+  <ellipse cx="170" cy="50" rx="25" ry="15" fill="#FFFFFF" opacity="0.8"/>
+  <ellipse cx="130" cy="50" rx="20" ry="12" fill="#FFFFFF" opacity="0.8"/>
+  
+  <!-- Title -->
+  <text x="400" y="50" font-family="Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="middle" fill="#DC143C">Elementary Students</text>
+  <text x="400" y="80" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#1E3A8A">Building Strong Foundations</text>
+</svg>

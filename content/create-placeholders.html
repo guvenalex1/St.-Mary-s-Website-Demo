@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Placeholder Images</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .placeholder {
+            margin: 10px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        canvas {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background: #C41E3A;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #991B1B;
+        }
+    </style>
+</head>
+<body>
+    <h1>St. Mary's Academy - Placeholder Image Generator</h1>
+    <p>This tool creates placeholder images for the website. Right-click on each image and "Save As" to download.</p>
+    
+    <div class="placeholder">
+        <h3>Logo (200x100)</h3>
+        <canvas id="logo" width="200" height="100"></canvas>
+        <button onclick="downloadImage('logo', 'st-marys-logo.png')">Download</button>
+    </div>
+    
+    <div class="placeholder">
+        <h3>Hero Campus (1200x600)</h3>
+        <canvas id="hero" width="1200" height="600"></canvas>
+        <button onclick="downloadImage('hero', 'hero-campus.jpg')">Download</button>
+    </div>
+    
+    <div class="placeholder">
+        <h3>Elementary Students (400x300)</h3>
+        <canvas id="elementary" width="400" height="300"></canvas>
+        <button onclick="downloadImage('elementary', 'elementary-students.jpg')">Download</button>
+    </div>
+    
+    <div class="placeholder">
+        <h3>Middle School Students (400x300)</h3>
+        <canvas id="middle" width="400" height="300"></canvas>
+        <button onclick="downloadImage('middle', 'middle-school-students.jpg')">Download</button>
+    </div>
+    
+    <div class="placeholder">
+        <h3>High School Students (400x300)</h3>
+        <canvas id="high" width="400" height="300"></canvas>
+        <button onclick="downloadImage('high', 'high-school-students.jpg')">Download</button>
+    </div>
+    
+    <div class="placeholder">
+        <h3>Students Learning (500x500)</h3>
+        <canvas id="learning" width="500" height="500"></canvas>
+        <button onclick="downloadImage('learning', 'students-learning.jpg')">Download</button>
+    </div>
+    
+    <div class="placeholder">
+        <h3>Athletics (280x200)</h3>
+        <canvas id="athletics" width="280" height="200"></canvas>
+        <button onclick="downloadImage('athletics', 'athletics.jpg')">Download</button>
+    </div>
+    
+    <div class="placeholder">
+        <h3>Arts Program (280x200)</h3>
+        <canvas id="arts" width="280" height="200"></canvas>
+        <button onclick="downloadImage('arts', 'arts-program.jpg')">Download</button>
+    </div>
+    
+    <div class="placeholder">
+        <h3>Student Activities (280x200)</h3>
+        <canvas id="activities" width="280" height="200"></canvas>
+        <button onclick="downloadImage('activities', 'student-activities.jpg')">Download</button>
+    </div>
+    
+    <div class="placeholder">
+        <h3>Service Learning (280x200)</h3>
+        <canvas id="service" width="280" height="200"></canvas>
+        <button onclick="downloadImage('service', 'service-learning.jpg')">Download</button>
+    </div>
+
+    <script>
+        // Create placeholder images
+        function createPlaceholder(canvasId, text, bgColor = '#1E3A8A', textColor = '#FFFFFF') {
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+            
+            // Fill background
+            ctx.fillStyle = bgColor;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Add gradient overlay
+            const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+            gradient.addColorStop(0, 'rgba(196, 30, 58, 0.3)');
+            gradient.addColorStop(1, 'rgba(30, 58, 138, 0.3)');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Add text
+            ctx.fillStyle = textColor;
+            ctx.font = `${Math.min(canvas.width / 15, 24)}px Arial, sans-serif`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            
+            // Split text into lines if too long
+            const words = text.split(' ');
+            const lines = [];
+            let currentLine = words[0];
+            
+            for (let i = 1; i < words.length; i++) {
+                const testLine = currentLine + ' ' + words[i];
+                const metrics = ctx.measureText(testLine);
+                if (metrics.width > canvas.width - 40) {
+                    lines.push(currentLine);
+                    currentLine = words[i];
+                } else {
+                    currentLine = testLine;
+                }
+            }
+            lines.push(currentLine);
+            
+            // Draw lines
+            const lineHeight = parseInt(ctx.font) * 1.2;
+            const startY = canvas.height / 2 - (lines.length - 1) * lineHeight / 2;
+            
+            lines.forEach((line, index) => {
+                ctx.fillText(line, canvas.width / 2, startY + index * lineHeight);
+            });
+            
+            // Add dimensions text
+            ctx.font = '12px Arial, sans-serif';
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+            ctx.fillText(`${canvas.width} × ${canvas.height}`, canvas.width / 2, canvas.height - 15);
+        }
+        
+        function downloadImage(canvasId, filename) {
+            const canvas = document.getElementById(canvasId);
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+        
+        // Generate all placeholder images
+        createPlaceholder('logo', 'St. Mary\'s Academy Logo', '#FFFFFF', '#C41E3A');
+        createPlaceholder('hero', 'St. Mary\'s Academy Campus Hero Image');
+        createPlaceholder('elementary', 'Elementary School Students');
+        createPlaceholder('middle', 'Middle School Students');
+        createPlaceholder('high', 'High School Students');
+        createPlaceholder('learning', 'Students Learning Together');
+        createPlaceholder('athletics', 'Athletics Program');
+        createPlaceholder('arts', 'Arts Program');
+        createPlaceholder('activities', 'Student Activities');
+        createPlaceholder('service', 'Service Learning');
+    </script>
+</body>
+</html>

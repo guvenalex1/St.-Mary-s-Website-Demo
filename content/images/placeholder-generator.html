@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Placeholder Image Generator</title>
+</head>
+<body>
+    <script>
+        // Create placeholder images
+        const images = [
+            'st-marys-logo.png',
+            'hero-campus.jpg',
+            'elementary-students.jpg',
+            'middle-school-students.jpg',
+            'high-school-students.jpg',
+            'students-learning.jpg',
+            'athletics.jpg',
+            'arts-program.jpg',
+            'student-activities.jpg',
+            'service-learning.jpg'
+        ];
+
+        images.forEach(imageName => {
+            const canvas = document.createElement('canvas');
+            canvas.width = 800;
+            canvas.height = 600;
+            const ctx = canvas.getContext('2d');
+            
+            // Create gradient background
+            const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+            gradient.addColorStop(0, '#C41E3A');
+            gradient.addColorStop(1, '#1E3A8A');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Add text
+            ctx.fillStyle = 'white';
+            ctx.font = 'bold 48px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('St. Mary\'s Academy', canvas.width/2, canvas.height/2 - 20);
+            ctx.font = '24px Arial';
+            ctx.fillText(imageName.replace(/\.[^/.]+$/, "").replace(/-/g, ' '), canvas.width/2, canvas.height/2 + 20);
+            
+            // Download the image
+            const link = document.createElement('a');
+            link.download = imageName;
+            link.href = canvas.toDataURL();
+            link.click();
+        });
+    </script>
+</body>
+</html>
