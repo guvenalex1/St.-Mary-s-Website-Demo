@@ -46,9 +46,14 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1440px;
     margin: 0 auto;
     padding: 0 var(--spacing-md);
+}
+
+.header-content {
+    max-width: 100%;
+    width: 100%;
 }
 
 /* Typography */
@@ -106,16 +111,15 @@ p {
 }
 
 .btn-outline {
-    background: transparent;
-    color: var(--primary-blue);
+    background: var(--primary-blue);
+    color: var(--white);
     border-color: var(--primary-blue);
 }
 
 .btn-outline:hover {
-    background: var(--primary-blue);
-    color: var(--white);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(30, 58, 138, 0.3);
+    background: var(--white);
+    color: var(--primary-blue);
+    border-color: var(--primary-blue);
 }
 
 .btn-large {
@@ -359,6 +363,12 @@ p {
     margin-bottom: var(--spacing-xs);
 }
 
+.stat-currency, .stat-metric {
+    font-family: 'Inter', Arial, sans-serif !important;
+    font-size: 0.85em;
+    vertical-align: super;
+}
+
 .stat-label {
     font-size: 1.125rem;
     color: var(--medium-gray);
@@ -582,6 +592,16 @@ p {
     transform: scale(1.1);
 }
 
+/* Custom zoom for Arts Program image */
+.campus-item .campus-image img[alt="Arts Program"] {
+    transform: scale(1.15);
+    transition: var(--transition);
+}
+
+.campus-item:hover .campus-image img[alt="Arts Program"] {
+    transform: scale(1.28);
+}
+
 .campus-content {
     padding: var(--spacing-lg);
 }
@@ -677,6 +697,14 @@ p {
     align-items: center;
     gap: var(--spacing-sm);
     margin-bottom: 0.5rem;
+    flex-direction: row;
+}
+
+.footer-logo-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 120px;
 }
 
 .footer-logo img {
@@ -684,8 +712,9 @@ p {
 }
 
 .footer-logo h3 {
-    color: var(--white);
-    margin-bottom: 0;
+    display: block;
+    white-space: normal;
+    line-height: 1.1;
 }
 
 .footer-description {
@@ -1101,4 +1130,23 @@ textarea:focus {
     font-size: 1.3em;
     color: #fff;
     margin-right: 0.5em;
+}
+
+.footer-brand-top {
+    display: block;
+    color: var(--primary-red);
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    line-height: 1.1;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.footer-brand-bottom {
+    display: block;
+    color: var(--primary-red);
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    line-height: 1.1;
+    margin: 0;
 }

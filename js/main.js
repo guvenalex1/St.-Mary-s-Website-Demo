@@ -173,53 +173,6 @@ function initScrollAnimations() {
     });
 }
 
-// Counter Animation for Stats
-function animateCounters() {
-    const counters = document.querySelectorAll('.stat-number');
-    
-    counters.forEach(counter => {
-        const target = parseInt(counter.textContent.replace(/\D/g, ''));
-        const duration = 2000;
-        const step = target / (duration / 16);
-        let current = 0;
-        
-        const timer = setInterval(() => {
-            current += step;
-            if (current >= target) {
-                current = target;
-                clearInterval(timer);
-            }
-            
-            // Format the number based on original content
-            const originalText = counter.textContent;
-            if (originalText.includes('%')) {
-                counter.textContent = Math.floor(current) + '%';
-            } else if (originalText.includes(':')) {
-                counter.textContent = Math.floor(current) + ':1';
-            } else if (originalText.includes('+')) {
-                counter.textContent = Math.floor(current) + '+';
-            } else {
-                counter.textContent = Math.floor(current);
-            }
-        }, 16);
-    });
-}
-
-// Initialize counter animation when stats section is visible
-const statsSection = document.querySelector('.stats');
-if (statsSection) {
-    const statsObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateCounters();
-                statsObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
-    
-    statsObserver.observe(statsSection);
-}
-
 // Form Handling (for future contact forms)
 function initFormHandling() {
     const forms = document.querySelectorAll('form');
